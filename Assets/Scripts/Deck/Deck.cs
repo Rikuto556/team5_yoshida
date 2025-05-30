@@ -72,11 +72,22 @@ public class Deck : MonoBehaviour
     //カスタマイズするためのカードを表示する
     public void CustomCardListOpen()
     {
-        for (int i = 0; i <= (Generator.CardBases.Length - 1); i++)
+        /*
+        for (int i = 0; i <= Generator.CardBases.Count; i++)
         {
             if (Generator.CardBases[i].SynthesisType == SynthesisType.Normal)
             {
                 Card card = Generator.Spawn(i);
+                LookCards.Add(card);
+                card.transform.SetParent(CardContents.transform);
+                customize.SerCardToCustom(card);
+            }
+        }*/
+        foreach (CardBase i in Generator.CardBases)
+        {
+            if (i.SynthesisType == SynthesisType.Normal)
+            {
+                Card card = Generator.Spawn(i.ID);
                 LookCards.Add(card);
                 card.transform.SetParent(CardContents.transform);
                 customize.SerCardToCustom(card);
@@ -94,7 +105,7 @@ public class Deck : MonoBehaviour
         int DeckLookCount = DeckWidth;
 
         int a = (LookDeck.Count + DeckWidth - 1) / DeckWidth;
-        LookDeck.Sort((card0, card1) => card0.Base.Number - card1.Base.Number);
+        LookDeck.Sort((card0, card1) => card0.Base.ID - card1.Base.ID);
 
         //スクロール縦幅の設定
         currentScale = Contents.GetComponent<RectTransform>().sizeDelta;
@@ -144,7 +155,7 @@ public class Deck : MonoBehaviour
         Vector2 currentScale;
         float posY;
 
-        LookCards.Sort((card0, card1) => card0.Base.Number - card1.Base.Number);
+        LookCards.Sort((card0, card1) => card0.Base.ID - card1.Base.ID);
 
         //スクロール縦幅の設定
         currentScale = Contents2.GetComponent<RectTransform>().sizeDelta;

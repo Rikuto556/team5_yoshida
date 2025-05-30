@@ -7,12 +7,13 @@ using UnityEngine.UI;
 
 public class RuleBook : MonoBehaviour
 {
-    [SerializeField] Text kekka;
+    [SerializeField] Text message;
     [SerializeField] float pluseffect;
 
 
 
     //一枚前のカードの追加効果処理
+    /*
     public void FlontEffect(Battler player, Card flontCard)
     {
         if (flontCard == null)
@@ -26,9 +27,10 @@ public class RuleBook : MonoBehaviour
             player.Guard = (int)(player.Guard * flontCard.Base.CardEffect.Protection_Effect);
             player.Heal = (int)(player.Heal * flontCard.Base.CardEffect.Heal_Effect);
         }
-    }
+    }*/
 
     //合成カードに掛かる倍率
+    /*
     public void TypeEffect(Battler player, Card card)
     {
         if (card.Base.SynthesisType == SynthesisType.Normal)
@@ -41,14 +43,13 @@ public class RuleBook : MonoBehaviour
             player.Guard = (int)(player.Guard * pluseffect);
             player.Heal = (int)(player.Heal * pluseffect);
         }
-    }
+    }*/
 
     //カードの効果処理
-    public void selectedCardVS(Battler player, Card card, Enemy enemy)
+    public void selectedCardVS(Battler player, Card card, Card flontCard, Enemy enemy)
     {
-        //card.Base.Type.PlayCard(player, enemy, kekka);
-
-        if (card.Base.Type == CardType.Sword)
+        card.Base.UniqueEffect.Execute(card, flontCard, player, enemy, message);
+        /*if (card.Base.Type == CardType.Sword)
         {
             int Hit = (int)(player.Attack * Random.Range(0.8f, 1.2f));
             float defense = 1f - enemy.Base.EnemyDefense / 100f;
@@ -92,7 +93,7 @@ public class RuleBook : MonoBehaviour
             }
             player.Life += player.Heal;
             kekka.text = $"{player.Heal}HPかいふくした";
-        }
+        }*/
 
     }
 
@@ -123,7 +124,7 @@ public class RuleBook : MonoBehaviour
         }
         Hit = (int)(Hit * Decrease);
         player.Life -= Hit;
-        kekka.text = $"{Hit}ダメージをうけた";
+        message.text = $"{Hit}ダメージをうけた";
 
     }
 
@@ -134,25 +135,25 @@ public class RuleBook : MonoBehaviour
 
         if (RestLife == 1f)
         {
-            kekka.text = "全く傷ついていない！";
+            message.text = "全く傷ついていない！";
         }
         else if (RestLife > 0.7f)
         {
-            kekka.text = $"{enemy.Base.Name1}はピンピンしている";
+            message.text = $"{enemy.Base.Name1}はピンピンしている";
         }
         else if (RestLife > 0.4f)
         {
-            kekka.text = $"{enemy.Base.Name1}は疲れ始めている";
+            message.text = $"{enemy.Base.Name1}は疲れ始めている";
         }
         else
         {
-            kekka.text = $"{enemy.Base.Name1}はもうボロボロだ！";
+            message.text = $"{enemy.Base.Name1}はもうボロボロだ！";
         }
     }
 
     //結果のテキストリセット
     public void TextSetupNext()
     {
-        kekka.text = "";
+        message.text = "";
     }
 }

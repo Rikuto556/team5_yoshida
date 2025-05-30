@@ -6,22 +6,24 @@ public class CardGenerator : MonoBehaviour
 {
 
     [SerializeField] Card cardPrefab;
-    [SerializeField] CardBase[] cardBases;
+    [SerializeField] List<CardBase> cardBases;
 
-    public CardBase[] CardBases { get => cardBases; set => cardBases = value; }
+    public List<CardBase> CardBases { get => cardBases; set => cardBases = value; }
 
     //ナンバーからカードを生成する
-    public Card Spawn(int number)
+    public Card Spawn(int id)
     {
+        CardBase spawnCard = cardBases.Find(x => x.ID == id);
         Card card = Instantiate(cardPrefab);
-        card.Set(CardBases[number]);
+        card.Set(spawnCard);
         return card;
     }
 
     //カードの情報を更新する
-    public Card ChangeCard(Card card, int number)
+    public Card ChangeCard(Card card, int id)
     {
-        card.Set(CardBases[number]);
+        CardBase spawnCard = cardBases.Find(x => x.ID == id);
+        card.Set(spawnCard);
         return card;
     }
 

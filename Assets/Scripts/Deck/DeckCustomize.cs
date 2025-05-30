@@ -8,6 +8,7 @@ public class DeckCustomize : MonoBehaviour
 {
     [SerializeField] GameObject deckContents;
     [SerializeField] GameObject cardContents;
+    [SerializeField] GameObject exitButton;
 
     public Deck deck;
     
@@ -21,7 +22,7 @@ public class DeckCustomize : MonoBehaviour
     {
         if (card.transform.parent == deckContents.transform)
         {
-            int dest = deck.DeckAll.FindIndex(number => number == card.Base.Number);
+            int dest = deck.DeckAll.FindIndex(number => number == card.Base.ID);
             
             deck.DeckAll.RemoveAt(dest);
             Destroy(deck.LookDeck[dest].gameObject);
@@ -32,17 +33,29 @@ public class DeckCustomize : MonoBehaviour
         }
         else if (deck.DeckAll.Count < 15 && card.transform.parent == cardContents.transform)
         {
-            deck.DeckAll.Add(card.Base.Number);
-            Card newCard = deck.Generator.Spawn(card.Base.Number);
+            deck.DeckAll.Add(card.Base.ID);
+            Card newCard = deck.Generator.Spawn(card.Base.ID);
             SerCardToCustom(newCard);
             newCard.transform.SetParent(deckContents.transform);
             deck.LookDeck.Add(newCard);
 
             deck.deckArignment();
         }
-        else if (deck.DeckAll.Count == 15 )
-        {
 
+        CustomizeCompletion();
+    }
+
+    //デッキが15枚以下の時戻るボタンを消す
+    void CustomizeCompletion()
+    {
+        if (deck.DeckAll.Count == 15)
+        {
+            exitButton.SetActive(true);
         }
+        else
+        {
+            exitButton.SetActive(false);
+        }
+        
     }
 }

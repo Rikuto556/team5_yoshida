@@ -87,20 +87,23 @@ public class SubmitPosition : MonoBehaviour
     {
         for(int i = 0;i < submitCards.Count;i++)
         {
-            
             effectReSet(submitCards[i]);
+
             if (i == 0) { }
-            else if (submitCards[i].Base.Type == CardType.Sword)
-                effectJudgement(submitCards[i - 1].Base.CardEffect.Attack_Effect, submitCards[i]);
 
-            else if (submitCards[i].Base.Type == CardType.Witchcraft)
-                effectJudgement(submitCards[i - 1].Base.CardEffect.Magic_Effect, submitCards[i]);
-
-            else if (submitCards[i].Base.Type == CardType.Protection)
-                effectJudgement(submitCards[i - 1].Base.CardEffect.Protection_Effect, submitCards[i]);
-
-            else if (submitCards[i].Base.Type == CardType.Heal)
-                effectJudgement(submitCards[i - 1].Base.CardEffect.Heal_Effect , submitCards[i]);
+            else if (submitCards[i - 1] == null )
+            {
+                effectReSet(submitCards[i]);
+            }
+            else
+            {
+                string cardName = submitCards[i - 1].Base.CardName;
+                FlontBuff foundBuff = submitCards[i].Base.FlontBuff.Find(buff => buff.flontCard == cardName);
+                if (foundBuff != null)
+                {
+                    effectJudgement(foundBuff.buff, submitCards[i]);
+                }
+            }
         }
     }
 
@@ -110,12 +113,12 @@ public class SubmitPosition : MonoBehaviour
         effectScaleReSet(card);
         if (magnification < 1f)
         {
-            card.EffectDown.gameObject.transform.localScale *= (2f - magnification);
+            //card.EffectDown.gameObject.transform.localScale *= (2f - magnification);
             card.EffectDown.gameObject.SetActive(true);
         }
         else if(magnification > 1f)
         {
-            card.EffectUp.gameObject.transform.localScale *= (1f + 0.3f * (magnification - 1f));
+            //card.EffectUp.gameObject.transform.localScale *= (1f + 0.3f * (magnification - 1f));
             card.EffectUp.gameObject.SetActive(true);
         }
         else

@@ -22,19 +22,19 @@ public class GameUI : MonoBehaviour
     [SerializeField] Text ruleText4;
     [SerializeField] Text ruleText5;
     [SerializeField] Text ruleText6;
-    [SerializeField] GameObject susumuButton;
-    [SerializeField] GameObject modoruButton;
-    [SerializeField] GameObject kekkaPanel;
+    [SerializeField] GameObject proceedButton;
+    [SerializeField] GameObject returnButton;
+    [SerializeField] GameObject massagePanel;
     [SerializeField] Text kekka;
 
     public GameObject RulePanel { get => rulePanel; set => rulePanel = value; }
     public GameObject DeckPanel { get => deckPanel; set => deckPanel = value; }
-    public GameObject KekkaPanel { get => kekkaPanel; set => kekkaPanel = value; }
+    public GameObject MassagePanel { get => massagePanel; set => massagePanel = value; }
 
     //UIの非表示化
     public void UISetUp()
     {
-        kekkaPanel.SetActive(false);
+        massagePanel.SetActive(false);
         resultPanel.SetActive(false);
         rulePanel.SetActive(false);
         SetRuleText();
@@ -43,7 +43,7 @@ public class GameUI : MonoBehaviour
 
     public void SetRuleText()
     {
-        modoruButton.SetActive(false);
+        returnButton.SetActive(false);
         ruleText1.gameObject.SetActive(true);
         ruleText2.gameObject.SetActive(false);
         ruleText3.gameObject.SetActive(false);
@@ -88,7 +88,7 @@ public class GameUI : MonoBehaviour
         {
             ruleText1.gameObject.SetActive(false);
             ruleText2.gameObject.SetActive(true);
-            modoruButton.SetActive(true);
+            returnButton.SetActive(true);
         }
         else if (ruleText2.gameObject.activeSelf)
         {
@@ -109,8 +109,8 @@ public class GameUI : MonoBehaviour
         {
             ruleText5.gameObject.SetActive(false);
             ruleText6.gameObject.SetActive(true);
-            susumuButton.SetActive(false);
-            Reaction riaction = susumuButton.GetComponent<Reaction>();
+            proceedButton.SetActive(false);
+            Reaction riaction = proceedButton.GetComponent<Reaction>();
             riaction.ButtonReSet();
         }
     }
@@ -121,8 +121,8 @@ public class GameUI : MonoBehaviour
         {
             ruleText2.gameObject.SetActive(false);
             ruleText1.gameObject.SetActive(true);
-            modoruButton.SetActive(false);
-            Reaction riaction = modoruButton.GetComponent<Reaction>();
+            returnButton.SetActive(false);
+            Reaction riaction = returnButton.GetComponent<Reaction>();
             riaction.ButtonReSet();
         }
         else if (ruleText3.gameObject.activeSelf)
@@ -144,7 +144,7 @@ public class GameUI : MonoBehaviour
         {
             ruleText6.gameObject.SetActive(false);
             ruleText5.gameObject.SetActive(true);
-            susumuButton.SetActive(true);
+            proceedButton.SetActive(true);
         }
 
     }

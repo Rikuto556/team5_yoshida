@@ -12,7 +12,6 @@ public class Card : MonoBehaviour
     [SerializeField] Image Frame;
     [SerializeField] Image nameFrame;
     [SerializeField] Text nameText;
-    [SerializeField] Text numberText;
     [SerializeField] Image icon;
     [SerializeField] Text descriotionText;
     [SerializeField] GameObject hidePanel;
@@ -32,7 +31,7 @@ public class Card : MonoBehaviour
     public void Set(CardBase cardBase)
     {
         Base = cardBase;
-        nameText.text = cardBase.Name1;
+        nameText.text = cardBase.DisplayName;
         icon.sprite = cardBase.Icon;
         descriotionText.text = cardBase.Description;
         nameFrame.color = cardBase.Color;

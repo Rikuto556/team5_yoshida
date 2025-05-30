@@ -33,7 +33,7 @@ public class BattlerHand : MonoBehaviour
     //リストの範囲をとってカードきれいに並べる
     public void ResetPosition()
     {
-        list.Sort((card0,card1) => card0.Base.Number - card1.Base.Number);
+        list.Sort((card0,card1) => card0.Base.ID - card1.Base.ID);
         for (int i = 0; i < list.Count; i++)
         {
             if(list.Count % 2 == 0)

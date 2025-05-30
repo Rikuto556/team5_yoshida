@@ -53,12 +53,13 @@ public class GameMaster : MonoBehaviour
         player.OnSynthesisAction = SynthesisAction;
         float handWidth = (float)(player.Hand.cardInterval * 6);
         player.Hand.cardInterval = (float)(handWidth / handMax);
-        SendCardTo(player);
         enemy = enemyGenerator.SpawnEnemy(enemyNum);
         enemyFiled.AddEnemy(enemy);
         synthesis.OnSynthesisPanel();
         deck.DeckListOpen();
         deck.DeckSet();
+        SendCardTo(player);
+
         TurnSetup();
     }
 
@@ -129,7 +130,7 @@ public class GameMaster : MonoBehaviour
     //カードバトル・勝敗判定
     IEnumerator CardBattle()
     {
-        gameUI.KekkaPanel.SetActive(true);
+        gameUI.MassagePanel.SetActive(true);
         player.Hand.gameObject.SetActive(false);
         cardGuide.SetActive(false);
         yield return new WaitForSeconds(1.2f);
@@ -142,9 +143,9 @@ public class GameMaster : MonoBehaviour
                 flontCard = player.SubmitList[i - 1];
             }
             card.transform.position += Vector3.up * 0.2f;
-            ruleBook.FlontEffect(player, flontCard);
-            ruleBook.TypeEffect(player, card);
-            ruleBook.selectedCardVS(player, card, enemy);
+            //ruleBook.FlontEffect(player, flontCard);
+            //ruleBook.TypeEffect(player, card);
+            ruleBook.selectedCardVS(player, card, flontCard, enemy);
             gameUI.ShowLifes(player.Life);
             enemy.EnemyLifeContlloer.lifeReflection(enemy);
             yield return new WaitForSeconds(1.2f);
@@ -153,13 +154,12 @@ public class GameMaster : MonoBehaviour
                 ShowResult();
                 yield break;
             }
-            player.SetStatus();
         }
 
         yield return new WaitForSeconds(1f);
         ruleBook.EnemyParLife(enemy);
         yield return new WaitForSeconds(1f);
-        gameUI.KekkaPanel.SetActive(false);
+        gameUI.MassagePanel.SetActive(false);
         yield return new WaitForSeconds(0.7f);
 
         StartCoroutine(EnemyAttack());
@@ -167,7 +167,7 @@ public class GameMaster : MonoBehaviour
     //カード合成する
     IEnumerator CardSynthesis()
     {
-        gameUI.KekkaPanel.SetActive(true);
+        gameUI.MassagePanel.SetActive(true);
         player.Hand.gameObject.SetActive(false);
         cardGuide.SetActive(false);
 
@@ -186,7 +186,7 @@ public class GameMaster : MonoBehaviour
         yield return StartCoroutine(synthesis.Close(player.SubmitList[0]));
         yield return new WaitForSeconds(1f);
 
-        gameUI.KekkaPanel.SetActive(false);
+        gameUI.MassagePanel.SetActive(false);
         yield return new WaitForSeconds(0.7f);
 
         StartCoroutine(EnemyAttack());
@@ -214,7 +214,7 @@ public class GameMaster : MonoBehaviour
     {
         //敵の攻撃宣言
         ruleBook.TextSetupNext();
-        gameUI.KekkaPanel.SetActive(true);
+        gameUI.MassagePanel.SetActive(true);
         yield return StartCoroutine(gameUI.Sengen(enemy));
 
         //敵の攻撃
@@ -230,7 +230,7 @@ public class GameMaster : MonoBehaviour
         gameUI.ShowLifes(player.Life);
         yield return new WaitForSeconds(1.5f);
 
-        gameUI.KekkaPanel.SetActive(false);
+        gameUI.MassagePanel.SetActive(false);
         SetupNextTurn();
     }
 
