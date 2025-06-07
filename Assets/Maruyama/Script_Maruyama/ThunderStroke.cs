@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-[CreateAssetMenu(menuName = "UniqueEffects/Attack")]
+[CreateAssetMenu(menuName = "UniqueEffects/ThunderStroke")]
 public class ThunderStroke : UniqueEffect
 {
-    [SerializeField, Range(0, 100)] int thunderStrokeDamage; //雷撃のダメージ
+    [SerializeField, Range(0, 100)] int thunderDamage; //雷撃のダメージ
     [SerializeField, Range(0, 100)] int accuracy; // 行動不可にする確率
+    public bool paralyzed = false;
+    //public bool paralyzed = Random.Range(0, 100) < accuracy;
     //カードの効果処理
     public override void Execute(Card card, Card flontCard, Battler player, Enemy enemy, Text message)
     {
