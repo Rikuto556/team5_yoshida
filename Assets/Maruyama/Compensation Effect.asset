@@ -12,3 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e041a74374457c42a28eebdd531db4a, type: 3}
   m_Name: Compensation Effect
   m_EditorClassIdentifier: 
+  magnification: 1.5
+  damageteisuu: 10
