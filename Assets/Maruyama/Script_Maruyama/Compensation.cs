@@ -16,11 +16,11 @@ public class Compensation : UniqueEffect
     //カードの効果処理
     public override void Execute(Card card, Card flontCard, Battler player, Enemy enemy, Text message)
     {
-        if (player.Life < damageteisuu)
+        /* if (player.Life < damageteisuu)
         {
             message.text = $"HPが足りないため使用できません。";
             return;
-        }  
+        }  */
 
         int attackValue = FlontBuff(card, flontCard);
 

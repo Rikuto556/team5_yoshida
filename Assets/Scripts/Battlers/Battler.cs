@@ -50,7 +50,17 @@ public class Battler : MonoBehaviour
     {
         if (IsSubmitted)
             return;
-
+        if (card.Base.UniqueEffect is Compensation compensation)    //ここから
+        {
+            Battler player = FindObjectOfType<Battler>(); // プレイヤー取得
+            if (!compensation.CanUse(player))
+            {
+                UnityEngine.UI.Text message = FindObjectOfType<UnityEngine.UI.Text>();
+                Debug.Log("HPが足りないためカードを出せません。");
+                //message.text = $"使用できません。";
+                return; // 出せない
+            }　　　　//ここまで追加
+        }
         if (card.transform.parent == submitPosition.transform)
         {
             submitPosition.ReRemove(card);

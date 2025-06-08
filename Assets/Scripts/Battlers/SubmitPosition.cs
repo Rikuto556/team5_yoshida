@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.VersionControl;
 using UnityEngine;
 
 public class SubmitPosition : MonoBehaviour
@@ -17,7 +18,18 @@ public class SubmitPosition : MonoBehaviour
     //カードをフィールドにセットする
     public void Set(Card card)
     {
-        if (Submitlist.Count < 2 )
+        if (card.Base.UniqueEffect is Compensation compensation)    //ここから
+        {
+            Battler player = FindObjectOfType<Battler>(); // プレイヤー取得
+            if (!compensation.CanUse(player))
+            {
+                UnityEngine.UI.Text message = FindObjectOfType<UnityEngine.UI.Text>();
+                Debug.Log("HPが足りないためカードを出せません。");
+                message.text = $"HPが足りないため使用できません。";
+                return; // 出せない
+            }　　　　//ここまで追加
+        }
+            if (Submitlist.Count < 2 )
         {
             Add(card);
             if (Submitlist.Count > 1)
