@@ -6,23 +6,39 @@ using UnityEngine.UI;
 [CreateAssetMenu(menuName = "UniqueEffects/ThunderStroke")]
 public class ThunderStroke : UniqueEffect
 {
-    [SerializeField, Range(0, 100)] int thunderDamage; //雷撃のダメージ
+    [SerializeField] int t_damage = 10; //雷撃のダメージ
     [SerializeField, Range(0, 100)] int accuracy; // 行動不可にする確率
-    public bool paralyzed = false;
-    //public bool paralyzed = Random.Range(0, 100) < accuracy;
-    //カードの効果処理
+
     public override void Execute(Card card, Card flontCard, Battler player, Enemy enemy, Text message)
     {
         int attackValue = FlontBuff(card, flontCard);
-
-        int Hit = (int)(attackValue * Random.Range(0.8f, 1.2f));
-        float defense = 1f - enemy.Base.EnemyDefense / 100f;
-        int damage = (int)(Hit * defense);
-        enemy.Base.EnemyLife -= damage;
-        message.text = $"{damage}ダメージ与えた";
+        enemy.Base.EnemyLife -= t_damage;
         if (enemy.Base.EnemyLife < 0)
         {
             enemy.Base.EnemyLife = 0;
+        }
+
+        message.text = $"{t_damage}雷撃ダメージ与えた";
+
+        enemy.ThunderCount++;  // 敵のカウントを増やす
+
+        bool paralyze = false;
+
+        if (enemy.ThunderCount >= 4)
+        {
+            paralyze = true; // 4回目は必中
+            enemy.ThunderCount = 0; // カウントリセット
+        }
+        else
+        {
+            int rand = Random.Range(0, 100);
+            paralyze = rand < accuracy;
+        }
+
+        if (paralyze)
+        {
+            enemy.SetParalyzed(true); // 敵に麻痺状態に
+            message.text += "\n敵を麻痺させた！";
         }
     }
     //一枚前のカードの追加効果処理

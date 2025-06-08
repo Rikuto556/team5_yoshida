@@ -27,7 +27,7 @@ MonoBehaviour:
     heal_Status: 0
   uniqueEffect: {fileID: 11400000, guid: eebea8d554ae24a4887bc245d43d35dd, type: 2}
   flontBuff:
-  - buff: 1
+  - buff: 1.5
     flontCard: Sword
   - buff: 1
     flontCard: Magic

@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95f359ba17d92a642aa2d30fdfb5f2af, type: 3}
   m_Name: 108_Thunder
   m_EditorClassIdentifier: 
-  displayName: Thunder
-  cardName: "\u96F7\u6483"
+  displayName: "\u96F7\u6483"
+  cardName: Thunder
   synthesisType: 0
   type: 0
   id: 108
@@ -25,5 +25,5 @@ MonoBehaviour:
     magic_Status: 0
     defense_Status: 0
     heal_Status: 0
-  uniqueEffect: {fileID: 0}
+  uniqueEffect: {fileID: 11400000, guid: ffc0f7cfea669bf4c9fa025b18d413c8, type: 2}
   flontBuff: []

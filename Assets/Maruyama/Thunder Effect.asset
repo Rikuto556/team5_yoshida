@@ -12,6 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15798be23e58ab54ead0c1cf5676d300, type: 3}
   m_Name: Thunder Effect
   m_EditorClassIdentifier: 
-  thunderDamage: 0
-  accuracy: 0
-  paralyzed: 0
+  t_damage: 15
+  accuracy: 10

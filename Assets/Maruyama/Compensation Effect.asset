@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Compensation Effect
   m_EditorClassIdentifier: 
   magnification: 1.5
-  damageteisuu: 99
+  damageteisuu: 30

@@ -40,6 +40,8 @@ public class EnemyBase : ScriptableObject
     public int EnemyCount { get => enemyCount; set => enemyCount = value; }
     public int Count1 { get => Count; set => Count = value; }
     public int[] Weights1 { get => Weights; set => Weights = value; }
+
+    public bool IsParalyzed { get; set; } = false;　　//add
 }
 
 public enum EnemyType
