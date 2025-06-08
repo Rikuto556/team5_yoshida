@@ -40,7 +40,7 @@ public class Compensation : UniqueEffect
         {
             player.Life = 0;
         }
-        message.text = $"{damage}ダメージ与え、\n{damageteisuu}ダメージの代償を受けた";
+        message.text = $"{damageteisuu}ダメージを受けた。、\n{damage}ダメージを与えた！"; 
         //  SubmitPositionでCanUseを呼び出さないとどうやってもカードを止められない
     }
     //一枚前のカードの追加効果処理
