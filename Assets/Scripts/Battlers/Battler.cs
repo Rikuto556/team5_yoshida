@@ -50,19 +50,10 @@ public class Battler : MonoBehaviour
     {
         if (IsSubmitted)
             return;
-        if (card.Base.UniqueEffect is Compensation compensation)    //ここから
-        {
-            Battler player = FindObjectOfType<Battler>(); // プレイヤー取得
-            if (!compensation.CanUse(player))
-            {
-                UnityEngine.UI.Text message = FindObjectOfType<UnityEngine.UI.Text>();
-                Debug.Log("HPが足りないためカードを出せません。");
-                //message.text = $"使用できません。";
-                return; // 出せない
-            }　　　　//ここまで追加
-        }
+
         if (card.transform.parent == submitPosition.transform)
         {
+            // 戻す処理（制限なし）
             submitPosition.ReRemove(card);
             submitPosition.SubmitCard = null;
             hand.Add(card);
@@ -71,19 +62,40 @@ public class Battler : MonoBehaviour
             card.PosReset();
             submitPosition.effectReSet(card);
         }
-        else if (submitPosition.SubmitCard != null)
+        else if (submitPosition.SubmitCard != null)　
         {
             return;
         }
-        else if (card.transform.parent == hand.transform)
+        else if (card.transform.parent == hand.transform)　　//クリックされたカードが手札にあるときの処理
         {
+            // ここから追加
+            int totalCon = 0; // 代償の合計値(1ターン内の2枚目以降を計算)
+            foreach (Card submittedCard in submitPosition.Submitlist) //場に出したカード
+            {
+                if (submittedCard.Base.UniqueEffect is Compensation comp)
+                {
+                    totalCon += comp.Damageteisuu;
+                }
+            }
+
+            if (card.Base.UniqueEffect is Compensation currentComp)
+            {
+                totalCon += currentComp.Damageteisuu;
+            }
+
+            if (totalCon > Life)
+            {
+                Debug.Log("HPが足りないためカードを出せません。");
+                return;
+            }
+
+            // 出す処理
             submitPosition.Set(card);
             hand.RemoveList(card);
             hand.ResetPosition();
             card.PosReset();
         }
     }
-
     //決定ボタン入力時に行うアクション
     public void OnSubmitButton()
     {

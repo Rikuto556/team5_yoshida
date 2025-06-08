@@ -8,6 +8,9 @@ public class Compensation : UniqueEffect
 {
     [SerializeField] float magnification = 1.5f; //ダメージの倍率を設定
     [SerializeField] int damageteisuu = 10; //代償
+
+    public int Damageteisuu => damageteisuu; //　Battlers.csで呼び出せるようにプロパティを設定
+
     public bool CanUse(Battler player)
     {
         return player.Life >= damageteisuu;
