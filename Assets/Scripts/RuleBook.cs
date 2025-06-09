@@ -119,7 +119,7 @@ public class RuleBook : MonoBehaviour
         {
             message.text = $"{enemy.Base.Name1}は麻痺していて動けない！";
             enemy.IsParalyzed = false; // 1ターンで回復
-            return;
+            return; //スキップ
         }
 
         int Hit = (int)(enemy.Base.EnemyAttack * Random.Range(0.8f, 1.1f));

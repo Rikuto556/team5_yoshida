@@ -22,7 +22,7 @@ public class Compensation : UniqueEffect
 
         int attackValue = FlontBuff(card, flontCard);
 
-        int Hit = (int)(attackValue * magnification * Random.Range(0.8f, 1.2f));
+        int Hit = (int)(attackValue * magnification * Random.Range(0.8f, 1.2f)); //攻撃力に倍率をかける
         float defense = 1f - enemy.Base.EnemyDefense / 100f;
         int damage = (int)(Hit * defense);
         enemy.Base.EnemyLife -= damage;
