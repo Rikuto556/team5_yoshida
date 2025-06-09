@@ -7,13 +7,13 @@ using UnityEngine.UI;
 public class Compensation : UniqueEffect
 {
     [SerializeField] float magnification = 1.5f; //ダメージの倍率を設定
-    [SerializeField] int damageteisuu = 10; //代償
+    [SerializeField] int sacrifice = 10; //代償
 
-    public int Damageteisuu => damageteisuu; //　Battlers.csで呼び出せるようにプロパティを設定
+    public int Damageteisuu => sacrifice; //　Battlers.csで呼び出せるようにプロパティを設定
 
     public bool CanUse(Battler player)
     {
-        return player.Life >= damageteisuu;
+        return player.Life >= sacrifice;
     }
 
     //カードの効果処理
@@ -30,12 +30,12 @@ public class Compensation : UniqueEffect
         {
             enemy.Base.EnemyLife = 0;
         }
-        player.Life -= damageteisuu;
+        player.Life -= sacrifice;
         if (player.Life < 0)
         {
             player.Life = 0;
         }
-        message.text = $"{damageteisuu}ダメージを受けた。、\n{damage}ダメージを与えた！"; 
+        message.text = $"{sacrifice }ダメージを受けた。\n{damage}ダメージを与えた！"; 
         //  SubmitPositionでCanUseを呼び出さないとどうやってもカードを止められない
     }
     //一枚前のカードの追加効果処理
