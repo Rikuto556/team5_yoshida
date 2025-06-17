@@ -115,6 +115,13 @@ public class RuleBook : MonoBehaviour
     //敵のターン処理
     public void EnemyAttack(Battler player, Enemy enemy)
     {
+        if (enemy.IsParalyzed) //麻痺なら
+        {
+            message.text = $"{enemy.Base.Name1}は麻痺していて動けない！";
+            enemy.IsParalyzed = false; // 1ターンで回復
+            return; //スキップ
+        }
+
         int Hit = (int)(enemy.Base.EnemyAttack * Random.Range(0.8f, 1.1f));
         float Decrease = 1f - player.Defens / 100f;
 
@@ -122,9 +129,11 @@ public class RuleBook : MonoBehaviour
         {
             Hit = 2 * Hit;
         }
+
         Hit = (int)(Hit * Decrease);
         player.Life -= Hit;
         message.text = $"{Hit}ダメージをうけた";
+
 
     }
 

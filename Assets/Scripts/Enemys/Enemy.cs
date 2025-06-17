@@ -20,6 +20,7 @@ public class Enemy : MonoBehaviour
 
     public UnityAction<Card> OnClickCard;
 
+
     
 
     //カード内容の定義
@@ -33,7 +34,18 @@ public class Enemy : MonoBehaviour
         CountText1.text = $"{enemyBase.Count1}";
         EnemyLifeContlloer = GetComponent<EnemyLifeContlloer>();
     }
+    public int ThunderCount { get; set; } = 0;　//こいつを使う
+    private bool isParalyzed = false;
+    public bool IsParalyzed
+    {
+        get => isParalyzed;
+        set => isParalyzed = value;
+    }
 
-
+    public void SetParalyzed(bool value)
+    {
+        IsParalyzed = value;          // ← Enemy.cs 側の変数（内部フラグ）
+        Base.IsParalyzed = value;
+    }
 
 }

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.VersionControl;
 using UnityEngine;
 
 public class SubmitPosition : MonoBehaviour
@@ -17,7 +18,7 @@ public class SubmitPosition : MonoBehaviour
     //カードをフィールドにセットする
     public void Set(Card card)
     {
-        if (Submitlist.Count < 2 )
+            if (Submitlist.Count < 2 )
         {
             Add(card);
             if (Submitlist.Count > 1)
