@@ -10,7 +10,7 @@ public class CardBase : ScriptableObject
     [SerializeField] string displayName;
     [SerializeField] string cardName;
     [SerializeField] SynthesisType synthesisType;
-    [SerializeField] CardType type;
+    //[SerializeField] CardType type;
     [SerializeField] int id;
     [SerializeField] Sprite icon;
     [SerializeField] Color color;
@@ -24,7 +24,7 @@ public class CardBase : ScriptableObject
     [SerializeField] List<FlontBuff> flontBuff = new List<FlontBuff>();
 
 
-    public CardType Type { get => type; set => type = value; }
+   // public CardType Type { get => type; set => type = value; }
     public int ID { get => id; set => id = value; }
     public Sprite Icon { get => icon; set => icon = value; }
     public string Description { get => description; set => description = value; }
@@ -39,13 +39,13 @@ public class CardBase : ScriptableObject
     
 }
 
-public enum CardType
-{
-    Attack,
-    Defense,
-    Heal,
-    exception,
-}
+//public enum CardType
+//{
+//    Attack,
+//    Defense,
+//    Heal,
+//    exception,
+//}
 
 public enum SynthesisType
 {
