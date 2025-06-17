@@ -9,6 +9,7 @@ public class RuleBook : MonoBehaviour
 {
     [SerializeField] Text message;
     [SerializeField] float pluseffect;
+    [SerializeField] public reflectorEffect reflector;
 
 
 
@@ -129,10 +130,26 @@ public class RuleBook : MonoBehaviour
         {
             Hit = 2 * Hit;
         }
+<<<<<<< HEAD
 
+=======
+       
+>>>>>>> fixyoshida
         Hit = (int)(Hit * Decrease);
-        player.Life -= Hit;
-        message.text = $"{Hit}ダメージをうけた";
+        Debug.Log(reflector.isreflector);
+        if (reflector.isreflector)
+        {
+            reflector.reflectorAttak(player, enemy, message, Hit);
+        }
+        else
+        {
+            player.Life -= Hit;
+            message.text = $"{Hit}ダメージをうけた";
+        }
+            
+            //Debug.Log("敵");
+//reflector.reflectorAttak(player, enemy, message, Hit);
+        //message.text = $"{Hit}ダメージをうけた";
 
 
     }
