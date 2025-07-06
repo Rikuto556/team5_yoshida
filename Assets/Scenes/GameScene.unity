@@ -669,7 +669,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 310911774}
   m_HandleRect: {fileID: 310911773}
   m_Direction: 2
-  m_Value: 0
+  m_Value: -0.0000012207046
   m_Size: 0.93750006
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -4125,21 +4125,18 @@ MonoBehaviour:
   cardBases:
   - {fileID: 11400000, guid: 864aadcd3dcede8449d28bd87edbf35d, type: 2}
   - {fileID: 11400000, guid: 88496db8246754c41a1cbfb7299ff5c4, type: 2}
-  - {fileID: 11400000, guid: 8efb1deb9a2554343a6df8070c634923, type: 2}
-  - {fileID: 11400000, guid: 963e9678a408b864e83c816720c81073, type: 2}
   - {fileID: 11400000, guid: 35c4a297d298e70479e3d82cfcf419a8, type: 2}
-  - {fileID: 11400000, guid: 8ed1cfde3bf406b448a883e65be35c0f, type: 2}
   - {fileID: 11400000, guid: fc2d4c87020d9fb469a8a211588e8deb, type: 2}
-  - {fileID: 11400000, guid: 75c62c86f4376af48be0cb58fc407944, type: 2}
   - {fileID: 11400000, guid: edcda7e997f3f1d4f8beefe7c9fd8bd7, type: 2}
-  - {fileID: 11400000, guid: 8ea07de4f1a03614ea7ef756f776789c, type: 2}
-<<<<<<< HEAD
   - {fileID: 11400000, guid: c50dabb6e348f9540a72d22ea73d298b, type: 2}
   - {fileID: 11400000, guid: c0f28c3b04c034e45ad3db92efea619e, type: 2}
-=======
-  - {fileID: 11400000, guid: ac890ae6390f5ea44a24b970139e23fc, type: 2}
+  - {fileID: 11400000, guid: 8efb1deb9a2554343a6df8070c634923, type: 2}
+  - {fileID: 11400000, guid: 8ed1cfde3bf406b448a883e65be35c0f, type: 2}
+  - {fileID: 11400000, guid: 75c62c86f4376af48be0cb58fc407944, type: 2}
+  - {fileID: 11400000, guid: 8ea07de4f1a03614ea7ef756f776789c, type: 2}
   - {fileID: 11400000, guid: 6e454a0ccf52ac64994b56ea0a8172f2, type: 2}
->>>>>>> fixyoshida
+  - {fileID: 11400000, guid: ac890ae6390f5ea44a24b970139e23fc, type: 2}
+  - {fileID: 11400000, guid: 963e9678a408b864e83c816720c81073, type: 2}
 --- !u!4 &959393679
 Transform:
   m_ObjectHideFlags: 0
@@ -5504,11 +5501,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-<<<<<<< HEAD
-  m_AnchoredPosition: {x: 0, y: 200.0005}
-=======
-  m_AnchoredPosition: {x: 0, y: 200.00008}
->>>>>>> fixyoshida
+  m_AnchoredPosition: {x: 0, y: 200.00021}
   m_SizeDelta: {x: 0, y: 800}
   m_Pivot: {x: 0, y: 1}
 --- !u!1 &1324895147
@@ -8624,13 +8617,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1804400923}
   m_HandleRect: {fileID: 1804400922}
   m_Direction: 2
-<<<<<<< HEAD
-  m_Value: -0.0000024414062
-  m_Size: 0.7481916
-=======
-  m_Value: 0
-  m_Size: 0.7499319
->>>>>>> fixyoshida
+  m_Value: -0.0000012207036
+  m_Size: 0.74977684
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:

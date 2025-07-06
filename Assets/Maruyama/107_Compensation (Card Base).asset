@@ -12,14 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95f359ba17d92a642aa2d30fdfb5f2af, type: 3}
   m_Name: 107_Compensation (Card Base)
   m_EditorClassIdentifier: 
-  displayName: "\u4EE3\u511F\u653B\u6483"
+  displayName: "\u4EE3\u511F"
   cardName: Compensation
   synthesisType: 0
-  type: 0
   id: 107
   icon: {fileID: 0}
   color: {r: 0, g: 0, b: 0, a: 0}
-  description: 
+  description: "\u4EE3\u511F\u653B\u6483"
   cardStatus:
     attack_Status: 30
     magic_Status: 0

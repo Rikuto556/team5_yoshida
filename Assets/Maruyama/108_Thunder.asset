@@ -15,11 +15,10 @@ MonoBehaviour:
   displayName: "\u96F7\u6483"
   cardName: Thunder
   synthesisType: 0
-  type: 0
   id: 108
   icon: {fileID: 0}
   color: {r: 0, g: 0, b: 0, a: 0}
-  description: 
+  description: "\u96F7\u6483\u653B\u6483"
   cardStatus:
     attack_Status: 0
     magic_Status: 0
