@@ -130,11 +130,11 @@ public class RuleBook : MonoBehaviour
         {
             Hit = 2 * Hit;
         }
-<<<<<<< HEAD
+//<<<<<<< HEAD
 
-=======
+//=======
        
->>>>>>> fixyoshida
+//>>>>>>> fixyoshida
         Hit = (int)(Hit * Decrease);
         Debug.Log(reflector.isreflector);
         if (reflector.isreflector)
