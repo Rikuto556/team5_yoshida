@@ -16,8 +16,8 @@ MonoBehaviour:
   cardName: Thunder
   synthesisType: 0
   id: 108
-  icon: {fileID: 0}
-  color: {r: 0, g: 0, b: 0, a: 0}
+  icon: {fileID: 21300000, guid: 01c1d0c815141df4fa69ca1689befc61, type: 3}
+  color: {r: 1, g: 1, b: 1, a: 1}
   description: "\u96F7\u6483\u653B\u6483"
   cardStatus:
     attack_Status: 0
